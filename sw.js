@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malek-pizza-v4.2';
+const CACHE_NAME = 'malek-pizza-v5.2';
 const urlsToCache = [
   './',
   './index.html',

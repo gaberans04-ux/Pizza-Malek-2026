@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="بيتزا مالك">
-    <link rel="apple-touch-icon" href="images/logomalek.png">
+    <link rel="apple-touch-icon" href="images/logomalek2.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -286,7 +286,7 @@
     <!-- شاشة الترحيب والتحميل -->
     <div id="splash-screen">
         <div class="loader-content">
-            <img src="images/logomalek.png" class="loader-logo-big" alt="بيتزا مالك">
+            <img src="images/logomalek2.png" class="loader-logo-big" alt="بيتزا مالك">
             <h2 class="loader-text">بيتزا <span>مالك</span></h2>
             <p class="creative-slogan">دوق واحكم ✨</p>
             <div class="loading-bar"><span></span></div>
@@ -321,7 +321,7 @@
             <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
             
             <div class="header-logo-container">
-                <img src="images/logomalek.png" class="header-logo" alt="بيتزا مالك">
+                <img src="images/logomalek2.png" class="header-logo" alt="بيتزا مالك">
             </div>
 
             <div class="cart-trigger-container">
@@ -864,7 +864,16 @@
 
         function initPWA() {
             if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js').catch(err => console.log('SW failed', err));
+                let refreshing = false;
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    if (!refreshing) {
+                        refreshing = true;
+                        window.location.reload();
+                    }
+                });
+                navigator.serviceWorker.register('sw.js').then(reg => {
+                    reg.update();
+                }).catch(err => console.log('SW failed', err));
             }
             const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
             if (!isStandalone && !localStorage.getItem('pwaInstalled')) {

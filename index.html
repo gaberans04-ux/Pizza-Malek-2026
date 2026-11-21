@@ -196,17 +196,18 @@
         .order-btn.added { background: var(--main-text); color: var(--white); box-shadow: none; }
         .fly-item { position: fixed; z-index: 9999; pointer-events: none; width: 30px; height: 30px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
 
-        /* --- شريط التثبيت الذكي --- */
+        /* --- شريط التثبيت الذكي (أحمر متناسق مع اللوجو) --- */
         #install-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white);
-            color: var(--main-text); border-top: 1.5px solid var(--accent-border);
+            position: fixed; bottom: 0; left: 0; width: 100%; background: var(--accent);
+            color: #ffffff; border-top: 1.5px solid var(--accent-hover);
             padding: 13px 20px; display: none; justify-content: space-between;
-            align-items: center; z-index: 1500; box-shadow: var(--shadow-md);
+            align-items: center; z-index: 1500; box-shadow: 0 -6px 22px rgba(227, 6, 19, 0.28);
             border-radius: 20px 20px 0 0; animation: slideUp 0.35s ease forwards;
         }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .install-text { font-weight: 800; font-size: 0.88rem; }
-        .install-btn { background: var(--accent); color: #ffffff; border: none; padding: 8px 18px; border-radius: 12px; font-weight: 800; font-size: 0.84rem; cursor: pointer; }
+        .install-text { font-weight: 800; font-size: 0.88rem; color: #ffffff; }
+        .install-btn { background: #ffffff; color: var(--accent); border: none; padding: 8px 18px; border-radius: 12px; font-weight: 900; font-size: 0.84rem; cursor: pointer; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14); }
+        .install-btn:active { transform: scale(0.96); background: #fdf8f8; }
 
         /* نافذة الآيفون */
         .ios-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.55); z-index: 3000; display: none; justify-content: center; align-items: center; padding: 20px; }
